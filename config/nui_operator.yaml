@@ -1,0 +1,11 @@
+project11/platforms/nui:
+  namespace: /project11/nui
+  width: 0.5
+  length: 2.0
+  color:
+    red: 1.0
+    green: 0.8
+    blue: 0.0
+  nav_sources:
+    usbl:
+      geopose_topic: /project11/nui/nav/position
