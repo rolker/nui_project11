@@ -8,7 +8,7 @@ from std_msgs.msg import String
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 def onRaw(msg):
-  s.sendto(msg.data, ('192.168.8.235',5000))
+  s.sendto(msg.data.encode('utf-8'), ('192.168.8.235',5000))
 
 rospy.init_node("usbl_to_udp")
 
