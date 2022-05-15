@@ -22,6 +22,7 @@ last_positon_time = None
 def smsCallback( msg):
   #print(msg)
   if msg.address == '5501':
+    print(msg)
     hb = Heartbeat()
     hb.header.stamp = msg.receive_time
     kv = HBKeyValue()
