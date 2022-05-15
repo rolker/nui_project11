@@ -5,7 +5,7 @@ import socket
 
 from std_msgs.msg import String
 
-rospy.init_node("udp_to_sms")
+rospy.init_node("udp_to_string")
 
 port = rospy.get_param("~port", 2884)
 buffer_size = rospy.get_param("~buffer_size", 2048)
@@ -20,7 +20,7 @@ while not rospy.is_shutdown():
   try:
     data = s.recv(buffer_size)
     msg = String()
-    msg.data = data
+    msg.data = data.decode('utf8')
     str_pub.publish(msg)
   except socket.timeout:
     pass

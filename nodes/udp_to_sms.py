@@ -16,6 +16,7 @@ usbl_pub = rospy.Publisher("/project11/drix_8/usbl_modem/send_raw", String, queu
 while not rospy.is_shutdown():
   try:
     data = s.recv(2048)
+    print (data)
     if len(data) and data[0] == '<':
       usbl_msg = String()
       usbl_msg.data = data
