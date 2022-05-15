@@ -16,9 +16,12 @@ usbl_pub = rospy.Publisher("/project11/drix_8/usbl_modem/send_raw", String, queu
 while not rospy.is_shutdown():
   try:
     data = s.recv(2048)
-    if len(data) and data[0] == '<':
-      usbl_msg = String()
-      usbl_msg.data = data
-      usbl_pub.publish(usbl_msg)
+    if len(data):
+      #print(data)
+      data = data.decode('utf8')
+      if data[0] == '<':
+        usbl_msg = String()
+        usbl_msg.data = data
+        usbl_pub.publish(usbl_msg)
   except socket.timeout:
     pass
