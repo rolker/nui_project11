@@ -6,7 +6,7 @@ import socket
 from std_msgs.msg import String
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.bind(('', 5000))
+s.bind(('', 5001))
 s.settimeout(0.1)
 
 rospy.init_node("udp_to_sms")
@@ -17,7 +17,7 @@ while not rospy.is_shutdown():
   try:
     data = s.recv(2048)
     if len(data):
-      #print(data)
+      print(data)
       data = data.decode('utf8')
       if data[0] == '<':
         usbl_msg = String()
